@@ -9,6 +9,62 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <!-- <link rel="shortcut icon" href="images/favicon/favicon.ico" type="image/x-icon"> -->
     <link rel="stylesheet" type="text/css" href="stylesheet.css">
+
+    <style>
+      .tab-container {
+        width: 100%;
+        max-width: 800px;
+        margin: 0 auto;
+      }
+      
+      .tabs {
+        display: flex;
+        background-color: #f1f1f1;
+        border-radius: 5px 5px 0 0;
+        overflow: hidden;
+      }
+      
+      .tab-btn {
+        background-color: inherit;
+        border: none;
+        outline: none;
+        cursor: pointer;
+        padding: 14px 16px;
+        transition: 0.3s;
+        font-size: 16px;
+        flex-grow: 1;
+        text-align: center;
+      }
+      
+      .tab-btn:hover {
+        background-color: #ddd;
+      }
+      
+      .tab-btn.active {
+        background-color: #88a175;
+        color: white;
+      }
+      
+      .tab-content {
+        display: none;
+        padding: 20px;
+        border: 1px solid #ccc;
+        border-top: none;
+        border-radius: 0 0 5px 5px;
+      }
+      
+      .tab-content.active {
+        display: block;
+      }
+      
+      .tab-content img {
+        width: 100%;
+        max-width: 100%;
+        height: auto;
+        display: block;
+        margin: 0 auto;
+      }
+    </style>
     
   </head>
 
@@ -40,6 +96,7 @@
             </tr>
           </tbody></table>
           
+
           <table style="width:100%;border:0px;border-spacing:0px;border-collapse:separate;margin-right:auto;margin-left:auto;"><tbody>
               <tr>
               <td style="padding:16px;width:100%;vertical-align:middle">
@@ -53,9 +110,33 @@
                 <p>
                   My previous research mainly focus on dysfluency modeling and speech (phoneme) recognition.
                 </p>
+
+                <div class="tab-container">
+                  <div class="tabs">
+                    <button class="tab-btn active" onclick="openTab(event, 'Language Learning')">Language Learning</button>
+                    <button class="tab-btn" onclick="openTab(event, 'Dysfluency Modeling')">Dysfluency Modeling</button>
+                    <button class="tab-btn" onclick="openTab(event, 'Phoneme Recognition')">Phoneme Recognition</button>
+                  </div>
+
+                  <div id="Language Learning" class="tab-content active">
+                    <img src="images/volumetric-video.jpg" alt="Language Learning">
+                    <p>xxx</p>
+                  </div>
+
+                  <div id="Dysfluency Modeling" class="tab-content">
+                    <img src="images/driving-simulator.jpg" alt="Dysfluency Modeling">
+                    <p>xxx</p>
+                  </div>
+
+                  <div id="Phoneme Recognition" class="tab-content">
+                    <img src="images/egocentric-ai.jpg" alt="Phoneme Recognitio">
+                    <p>xxx</p>
+                  </div>
+                </div>
               </td>
             </tr>
           </tbody></table>
+          
 
           <table style="width:100%;border:0px;border-spacing:0px;border-collapse:separate;margin-right:auto;margin-left:auto;"><tbody>
             <tr>
@@ -63,30 +144,7 @@
               <h2>Publications</h2>
             </td>
           </tr>
-
-          <!-- <tr class="spaceUnder">
-            <td width="50%" style="padding-right: 120px">
-              <img src="./images/ssdm.png" width="50%" style="display: block; margin-left: auto; margin-right: auto;">
-            </td>
-            
-          <td style="width:50%">
-            <a href="https://arxiv.org/abs/2412.00265"><b>SSDM 2.0: Time-Accurate Speech Rich Transcription with Non-Fluenciesg</b></a>
-            <br>
-            <b>Jiachen Lian</b>, Xuanru Zhou, Zoe Ezzes, Jet
-Vonk, Brittany Morin, David Baquirin, Zachary Miller, Maria Luisa Gorno Tempini
-            and Gopala
-Krishna Anumanchipalli,
-            <br>
-            <b>Tech Report. <span style="color: green;">An efficient AI Agent for Language Screening and Spoken Language Learning. 
-            <br>
-            </span> <a href="https://berkeley-speech-group.github.io/SSDM2.0/">[Project Page]</a>  
-          </td>
-
-          </tr>
-
-        </tbody></table> -->
-
-
+          
         <table width="100%" align="center" border="0" cellspacing="0" cellpadding="10">
           <tbody>
             <tr>
@@ -239,7 +297,23 @@ Krishna Anumanchipalli,
         </tr>
       </tbody></table>
 
-
+      <!-- tab function -->
+      <script>
+        function openTab(evt, tabName) {
+          var tabContent = document.getElementsByClassName("tab-content");
+          for (var i = 0; i < tabContent.length; i++) {
+            tabContent[i].classList.remove("active");
+          }
+        
+          var tabLinks = document.getElementsByClassName("tab-btn");
+          for (var i = 0; i < tabLinks.length; i++) {
+            tabLinks[i].classList.remove("active");
+          }
+          
+          document.getElementById(tabName).classList.add("active");
+          evt.currentTarget.classList.add("active");
+        }
+      </script>
 
     
   </body>
